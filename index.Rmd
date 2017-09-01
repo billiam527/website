@@ -2,6 +2,11 @@
 title: "dplyr"
 output: html_document
 ---
+by: Bill Fisher
+
+![](goldfish.jpg)
+
+I am a master's student at Mercyhurst University currently studying Data Science.  Here are some notes on R and dplyr.
 
 ## Filtering Columns and Rows
 
