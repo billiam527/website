@@ -25,3 +25,48 @@ Batting%>%
   filter(teamID=='NYA' & yearID==1927)
 ```
 
+Let us look at some more examples.  Say we want to see which New York Yankee players hit more than 40 home runs in a year. We can run the following code:
+
+```{r message=FALSE, warning=FALSE}
+Batting%>%
+  select(playerID,yearID,teamID,HR)%>%
+  filter(teamID=='NYA' & HR>=40)
+```
+
+How about we look at which players, in the entire MLB, were able to hit 40 home runs while striking out less than 60 times.
+
+```{r message=FALSE, warning=FALSE}
+Batting%>%
+  select(playerID,yearID,teamID,HR,SO)%>%
+  filter(HR>40 & SO<60)
+```
+
+Let us look at which Phillies players were abble to hit more than 30 home runs in the 1970s.
+
+```{r message=FALSE, warning=FALSE}
+Batting%>%
+  select(playerID,yearID,teamID,HR)%>%
+  filter(HR>30 & teamID=='PHI' & yearID>=1970 & yearID<=1979)
+```
+
+Using R we can also have our columns sorted once we have our selected data filtered down.  To do this, we simply have to add an 'arrange' line into our code.
+
+If we wanted to see a list of players who have hit more than 50 home runs in a year and also wanted that list to be sorted from the most home runs to the least, we would use the following code:
+
+```{r message=FALSE, warning=FALSE}
+Batting%>%
+  select(playerID,yearID,teamID,HR)%>%
+  filter(HR>50)%>%
+  arrange(desc(HR))
+```
+
+Notice the 'desc' command before the category we want to sort.  This sorts it from largest to smallest.
+
+If we wanted to see players who have had less than 10 strikeouts in a year (with a minimum of 400 at-bats) and sort by the lowest, we can use the following code:
+
+```{r message=FALSE, warning=FALSE}
+Batting%>%
+  select(playerID,yearID,teamID,AB,SO)%>%
+  filter(AB>=400 & SO<10)%>%
+  arrange(SO)
+```
