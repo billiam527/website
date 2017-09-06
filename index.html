@@ -243,7 +243,7 @@ library(dplyr)</code></pre>
 ## 7 schmimi01   1977    PHI 38
 ## 8 luzingr01   1978    PHI 35
 ## 9 schmimi01   1979    PHI 45</code></pre>
-<p>We can also have our columns sorted once we have our selected data filtered down. To do this, we simply have to add an ‘arrange’ line into our code.</p>
+<p>We can also sort our columns once we have our selected data filtered down. To do this, we simply have to add an ‘arrange’ line into our code.</p>
 <p>If we wanted to see a list of players who have hit more than 50 home runs in a year and also wanted that list to be sorted from the most home runs to the least, we would use the following code:</p>
 <pre class="r"><code>Batting%&gt;%
   select(playerID,yearID,teamID,HR)%&gt;%

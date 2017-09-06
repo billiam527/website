@@ -6,7 +6,7 @@ Bill Fisher
 
 ![](profilepic.PNG)
 
-I am a master's student at Mercyhurst University currently studying Data Science.  Here are some notes on R and dplyr.
+My name is Bill. I am a fraud analyst and currently going for my master's degree at Mercyhurst University in the field of Data Science.  Here are some notes on R and dplyr.
 
 ## Filtering Columns and Rows
 
