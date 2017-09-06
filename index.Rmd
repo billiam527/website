@@ -49,7 +49,7 @@ Batting%>%
   filter(HR>30 & teamID=='PHI' & yearID>=1970 & yearID<=1979)
 ```
 
-Using R we can also have our columns sorted once we have our selected data filtered down.  To do this, we simply have to add an 'arrange' line into our code.
+We can also have our columns sorted once we have our selected data filtered down.  To do this, we simply have to add an 'arrange' line into our code.
 
 If we wanted to see a list of players who have hit more than 50 home runs in a year and also wanted that list to be sorted from the most home runs to the least, we would use the following code:
 
