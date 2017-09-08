@@ -98,3 +98,27 @@ Batting%>%
   arrange(desc(career_HR))
 ```
 
+If we wanted to look at players with the highest career averages we can run this code:
+
+```{r}
+Batting%>%
+  group_by(playerID)%>%
+  summarize(career_HRavg=mean(HR))%>%
+  filter(career_HRavg>=30)%>%
+  arrange(desc(career_HRavg))
+```
+
+This gives us the list of 13 players who were able to average more than 30 HRs in a season.
+
+Finally, lets find all the players, since the 1970 season, that were able to hit 50 homeruns in a season at least once.
+
+```{r}
+Batting%>%
+  filter(yearID>1970)%>%
+  group_by(playerID)%>%
+  summarize(fiftyclub=max(HR))%>%
+  filter(fiftyclub>50)%>%
+  select(playerID)
+```
+
+We will do this by first filtering for years that are greater than 1970.  Then we will group these by the player's IDs.  Next, you will need to find t a particular player's highest HR total in a season (because if they have never hit 50 in their career obviously, they would not make the list).  finally, since we do not necessarily need to see their HR totals we can ask to just see the player's names.
