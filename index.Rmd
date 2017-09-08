@@ -49,6 +49,8 @@ Batting%>%
   filter(HR>30 & teamID=='PHI' & yearID>=1970 & yearID<=1979)
 ```
 
+##Sorting
+
 We can also sort our columns once we have our selected data filtered down.  To do this, we simply have to add an 'arrange' line into our code.
 
 If we wanted to see a list of players who have hit more than 50 home runs in a year and also wanted that list to be sorted from the most home runs to the least, we would use the following code:
@@ -60,7 +62,7 @@ Batting%>%
   arrange(desc(HR))
 ```
 
-Notice the 'desc' command before the category we want to sort.  This sorts it from largest to smallest.
+*Notice the 'desc' command before the category we want to sort.  This sorts it from largest to smallest.
 
 If we wanted to see players who have had less than 10 strikeouts in a year (with a minimum of 400 at-bats) and sort by the lowest, we can use the following code:
 
@@ -70,3 +72,29 @@ Batting%>%
   filter(AB>=400 & SO<10)%>%
   arrange(SO)
 ```
+
+##Aggregation
+
+How about we work on some aggregation now?
+
+If we have a certain player, we now know how to pull up all their homeruns in each of their seasons, but what if we want to see their homerun totals over a career? To do this we will use the 'group_by' and 'summarize' functions.  Here is an example taking Babe Ruth's HR total:
+
+```{r message=FALSE, warning=FALSE}
+Batting%>%
+  filter(playerID=='ruthba01')%>%
+  group_by(playerID)%>%
+  summarize(career_HR=sum(HR))
+```
+
+*Note that we created a variable for career homeruns (career_HR) so that we can refer to it later.
+
+Now, what if we wanted to look at all players who hit more than 600 homeruns? We can run the following code:
+
+```{r}
+Batting%>%
+  group_by(playerID)%>%
+  summarize(career_HR=sum(HR))%>%
+  filter(career_HR>=600)%>%
+  arrange(desc(career_HR))
+```
+
