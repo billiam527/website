@@ -121,4 +121,4 @@ Batting%>%
   select(playerID)
 ```
 
-We will do this by first filtering for years that are greater than 1970.  Then we will group these by the player's IDs.  Next, you will need to find t a particular player's highest HR total in a season (because if they have never hit 50 in their career obviously, they would not make the list).  finally, since we do not necessarily need to see their HR totals we can ask to just see the player's names.
+We will do this by first, filtering for years that are greater than 1970.  Then, we will group by the player's IDs.  Next, you will need to find a particular player's highest HR total in a season and make sure their max season is higher than 50 (because if they have never hit 50 in their career obviously, they would not make the list).  Finally, since we do not necessarily need to see their HR totals we can ask to just see the player's names.

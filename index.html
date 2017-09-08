@@ -417,7 +417,7 @@ library(dplyr)</code></pre>
 <p>This gives us the list of 13 players who were able to average more than 30 HRs in a season.</p>
 <p>Finally, lets find all the players, since the 1970 season, that were able to hit 50 homeruns in a season at least once.</p>
 <pre class="r"><code>Batting%&gt;%
-  filter(yearID&gt;=1970)%&gt;%
+  filter(yearID&gt;1970)%&gt;%
   group_by(playerID)%&gt;%
   summarize(fiftyclub=max(HR))%&gt;%
   filter(fiftyclub&gt;50)%&gt;%
@@ -439,6 +439,7 @@ library(dplyr)</code></pre>
 ## 12 rodrial01
 ## 13  sosasa01
 ## 14 thomeji01</code></pre>
+<p>We will do this by first filtering for years that are greater than 1970. Then we will group these by the player’s IDs. Next, you will need to find t a particular player’s highest HR total in a season (because if they have never hit 50 in their career obviously, they would not make the list). finally, since we do not necessarily need to see their HR totals we can ask to just see the player’s names.</p>
 </div>
 
 
